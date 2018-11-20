@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	                    http://www.springframework.org/schema/beans/spring-beans.xsd
+	                    http://www.springframework.org/schema/context 
+	                    http://www.springframework.org/schema/context/spring-context.xsd
+	                    http://www.springframework.org/schema/mvc 
+	                    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	                    
+	<!-- 配置注解扫描Controller包，include-filter包含，但此时use-default-filters（默认扫描）要设为false-->
+	<context:component-scan base-package="Controller,Biz" use-default-filters="false">
+	   <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	<!-- 解决二次路径问题 （如图片的显示问题）-->
+	<mvc:default-servlet-handler/>
+	
+	<!-- 配置注解驱动     使用<mvc:annotation-driven>替代注解处理器和适配器的配置。 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	<!-- 配置视图解析器spring-webmvc-4.0.3.RELEASE.jar包下 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	    <!-- 配置前缀和后缀 -->
+	   <property name="prefix" value="/WEB-INF/"></property>
+	   <property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<bean name="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <property name="defaultEncoding" value="UTF-8"></property>
+	    <property name="maxInMemorySize" value="2048"></property>
+	    <property name="maxUploadSize" value="10000000"></property>
+	</bean>
+	
+	
+	
+	
+
+
+</beans>

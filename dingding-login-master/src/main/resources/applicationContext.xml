@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	                    http://www.springframework.org/schema/beans/spring-beans.xsd
+	                    http://www.springframework.org/schema/context 
+	                    http://www.springframework.org/schema/context/spring-context.xsd
+	                    http://www.springframework.org/schema/mvc 
+	                    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	     
+	 <!-- 实现springMvc和spring配置文件的分离，可在web.xml文件中进行相应设置 -->        
+	            
+	<!-- 配置注解扫描Biz包,使用exclude-filter（不包含） 进行少选，此时要选默认位置use-default-filters="true"-->
+	<context:component-scan base-package="Controller,service" use-default-filters="true">
+	  <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+	<!-- 下边可配置属于spring框架的数据源信息、事务aop等 -->
+	
+	
+	
+	
+	
+
+
+</beans>
