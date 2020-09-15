@@ -236,6 +236,7 @@ public class DingDingLoginController {
 
    public String loginGitTest(HttpServletRequest request, HttpServletResponse response,Model model) {
 		logger.info("成功进入请求钉钉页1，生成二维码登录页面");
+		//此时为第5次修改
 		String time = System.currentTimeMillis() + "";
         System.out.println(time);
 		//新加修改数据信息
