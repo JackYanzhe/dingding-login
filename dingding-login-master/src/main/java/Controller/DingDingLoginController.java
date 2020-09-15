@@ -245,12 +245,13 @@ public class DingDingLoginController {
 				.append("response_type=code&scope=snsapi_login&state=")
 				.append(time)
 				.append("&redirect_uri=" + DingTalkConstant.CALL_BACK_URL);
+		stringBuilder.append("添加修改信息数据");
 		try {
 			result = stringBuilder.toString();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+		stringBuilder.append("添加修改信息数据2");
 		return result;
 
 	}
