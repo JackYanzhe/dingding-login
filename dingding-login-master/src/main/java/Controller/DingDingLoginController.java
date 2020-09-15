@@ -238,20 +238,16 @@ public class DingDingLoginController {
 		logger.info("成功进入请求钉钉页1，生成二维码登录页面");
 		String time = System.currentTimeMillis() + "";
         System.out.println(time);
+		//新加修改数据信息
 		StringBuilder stringBuilder = new StringBuilder();
 		String result="";
-		stringBuilder
-				.append("https://oapi.dingtalk.com/connect/qrconnect?appid=dingoawgtaauo7rvbyzaah&")
-				.append("response_type=code&scope=snsapi_login&state=")
-				.append(time)
-				.append("&redirect_uri=" + DingTalkConstant.CALL_BACK_URL);
-		stringBuilder.append("添加修改信息数据");
+		
 		try {
 			result = stringBuilder.toString();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		stringBuilder.append("添加修改信息数据2");
+		
 		return result;
 
 	}
